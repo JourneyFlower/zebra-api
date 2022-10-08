@@ -417,4 +417,4 @@ public class ZplPrinter {
 }
 ```
 
-## 通过 `src\main\resources\service_tool` 下的工具，可以将该`zebra-api`安装为本地打印服务。
+## 通过 `src\main\resources\service_tool` 下的工具([winsw](https://github.com/JourneyFlower/winsw))，可以将该`zebra-api`安装为本地打印服务。

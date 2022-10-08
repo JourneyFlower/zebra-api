@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.journey.flower.dao.ZebraPrintTemplateDao">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_ZEBRAPRINT_TEMPLATE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+    <update id="updateByPrimaryKeySelective" parameterType="com.journey.flower.core.model.ZebraPrintTemplate">
+        update T_ZEBRAPRINT_TEMPLATE
+        <set>
+            <if test="templateName != null">
+                TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+            </if>
+            <if test="templateCode != null">
+                TEMPLATE_CODE = #{templateCode,jdbcType=VARCHAR},
+            </if>
+            <if test="templatePath != null">
+                TEMPLATE_PATH = #{templatePath,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                CREATE_USER = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                UPDATE_USER = #{updateUser,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <insert id="insert" parameterType="com.journey.flower.core.model.ZebraPrintTemplate">
+    insert into T_ZEBRAPRINT_TEMPLATE (ID, TEMPLATE_NAME, TEMPLATE_CODE,
+      TEMPLATE_PATH, CREATE_DATE, CERATE_USER,
+      UPDATE_DATE, UPDATE_USER)
+    values (#{id,jdbcType=VARCHAR}, #{templateName,jdbcType=VARCHAR}, #{templateCode,jdbcType=VARCHAR},
+      #{templatePath,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{cerateUser,jdbcType=VARCHAR},
+      #{updateDate,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.journey.flower.core.model.ZebraPrintTemplate">
+        insert into T_ZEBRAPRINT_TEMPLATE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="templateName != null">
+                TEMPLATE_NAME,
+            </if>
+            <if test="templateCode != null">
+                TEMPLATE_CODE,
+            </if>
+            <if test="templatePath != null">
+                TEMPLATE_PATH,
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE,
+            </if>
+            <if test="cerateUser != null">
+                CERATE_USER,
+            </if>
+            <if test="updateDate != null">
+                UPDATE_DATE,
+            </if>
+            <if test="updateUser != null">
+                UPDATE_USER,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="templateName != null">
+                #{templateName,jdbcType=VARCHAR},
+            </if>
+            <if test="templateCode != null">
+                #{templateCode,jdbcType=VARCHAR},
+            </if>
+            <if test="templatePath != null">
+                #{templatePath,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cerateUser != null">
+                #{cerateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.journey.flower.core.model.ZebraPrintTemplate">
+    update T_ZEBRAPRINT_TEMPLATE
+    set TEMPLATE_NAME = #{templateName,jdbcType=VARCHAR},
+      TEMPLATE_CODE = #{templateCode,jdbcType=VARCHAR},
+      TEMPLATE_PATH = #{templatePath,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      CERATE_USER = #{cerateUser,jdbcType=VARCHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+    <select id="getZPLTemplateList" parameterType="com.journey.flower.core.model.ZebraPrintTemplate"
+            resultType="com.journey.flower.core.model.ZebraPrintTemplate">
+            SELECT
+             ID,t.TEMPLATE_NAME,t.TEMPLATE_CODE,t.TEMPLATE_PATH
+             FROM T_ZEBRAPRINT_TEMPLATE t WHERE t.TEMPLATE_CODE = #{templateCode}
+  </select>
+</mapper>

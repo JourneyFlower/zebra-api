@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.journey.flower</groupId>
+	<artifactId>zebra-api</artifactId>
+	<version>1.1.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>${project.artifactId}</name>
+	<description>Zebra-API</description>
+	<url>https://www.cnblogs.com/JourneyOfFlower/</url>
+
+	<modules>
+		<module>zebra-print-api</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.test.skip>true</maven.test.skip>
+
+		<spring-boot.version>2.6.6</spring-boot.version>
+		<mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
+		<mysql-connector-java.version>8.0.28</mysql-connector-java.version>
+
+		<httpclient.version>4.5.13</httpclient.version>
+	</properties>
+
+
+	<licenses>
+		<license>
+			<name>GNU General Public License version 3</name>
+			<url>https://opensource.org/licenses/GPL-3.0</url>
+		</license>
+	</licenses>
+
+</project>
